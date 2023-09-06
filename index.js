@@ -4,24 +4,28 @@ const inquirer = require('inquirer');
 const {Circle, Square} = require('./lib/')
 const promptUser = ()=>{
     inquirer
-  .prompt([
-    {
-        type:'input',
-        name: 'text',
-        message: 'Please enter 3 letters'
-    },
-    {
-        type:'list',
-        name: 'shape',
-        message: 'Select your shape',
-        choices: ['Circle', 'Square', 'Triangle']
-    },
-    {
-        type:'input',
-        name: 'textColor',
-        message: 'Enter your text color'
-    },
-    {
+    .prompt([
+        {
+            // I can enter three characters
+            type:'input',
+            name: 'text',
+            message: 'Please enter 3 letters'
+        },
+        {
+            // I am presented with a list of shapes to choose from: circle, triangle, and square
+            type:'list',
+            name: 'shape',
+            message: 'Select your shape',
+            choices: ['Circle', 'Square', 'Triangle']
+        },
+        {
+            // Text Color - enter a color keyword (OR a hexadecimal number)
+            type:'input',
+            name: 'textColor',
+            message: 'Enter your text color'
+        },
+        {
+        // Shape Color - enter a color keyword (OR a hexadecimal number)
         type:'input',
         name: 'shapeColor',
         message: 'Enter your shape color'
@@ -60,13 +64,6 @@ const buildSVG = (answers) =>{
             console.log(triangle.render())
         }
 }
-// THEN I can enter up to three characters
-// WHEN I am prompted for the text color
-// THEN I can enter a color keyword (OR a hexadecimal number)
-// WHEN I am prompted for a shape
-// THEN I am presented with a list of shapes to choose from: circle, triangle, and square
-// WHEN I am prompted for the shape's color
-// THEN I can enter a color keyword (OR a hexadecimal number)
 // WHEN I have entered input for all the prompts
 // THEN an SVG file is created named `logo.svg`
 // AND the output text "Generated logo.svg" is printed in the command line
